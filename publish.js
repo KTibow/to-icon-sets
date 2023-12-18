@@ -22,13 +22,17 @@ const p = async (name) => {
   const d = await pacote.tarball(path, { Arborist });
 
   console.log(`publishing ${name}`);
-  await publish(m, d, {
-    npmVersion: `${m.name}@${m.version}`,
-    access: "public",
-    forceAuth: {
-      token: process.env.NPM_TOKEN,
-    },
-  });
+  try {
+    await publish(m, d, {
+      npmVersion: `${m.name}@${m.version}`,
+      access: "public",
+      forceAuth: {
+        token: process.env.NPM_TOKEN,
+      },
+    });
+  } catch (e) {
+    console.error(`failed to publish ${name}`, e);
+  }
 };
 
 const sets = await readdir("icon-sets-output");
