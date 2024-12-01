@@ -8,9 +8,9 @@ However, the admins at Iconify stopped publishing JS-style icon packages.
 
 ## Solution
 
-Use GitHub actions to host the following process:
+Use GitHub Actions to host the following process:
 
 - Download JSON icon data from Iconify
 - Use `@iconify/tools` to convert them to packages
-- Publish them on NPM as `@ktibow/iconset-<name>`
+- Publish them on NPM as `@ktibow/iconset-<name>`  
   _note that each icon set has its own license and is not my own work_
